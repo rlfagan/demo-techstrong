@@ -1,1 +1,1 @@
-# demo-techstrong
+# Demo for TechStrong
