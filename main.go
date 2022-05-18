@@ -40,6 +40,41 @@ type wrapperPetHandler struct {
 	pm petMetrics
 }
 
+func main() {
+	c := global.MeterProvider().Meter("pet_app")
+	ctx := context.Background()
+
+	pm, err := initializePetMetrics(c)
+	if err != nil {
+		log.Fatal("unable to initialize pet metrics.")
+	}
+
+	ws := wrapperPetHandler{
+		pm: *pm,
+	}
+
+	configureOpentelemetry(ctx)
+
+	// Wrap your httpHandler function.
+	petHandler := http.HandlerFunc(ws.petHandler)
+	wrappedSleepHandler := otelhttp.NewHandler(petHandler, "pet")
+	http.Handle("/pet", wrappedSleepHandler)
+
+	log.Fatal(http.ListenAndServe(":3035", nil))
+
+}
+
+func configureOpentelemetry(ctx context.Context) {
+	res := resource.NewWithAttributes(
+		semconv.SchemaURL,
+		// the service name used to display traces in backends
+		semconv.ServiceNameKey.String("pet-service"),
+	)
+
+	pettracing.ConfigureTracing(ctx, res, tracer)
+	petmetrics.ConfigureMetrics(res)
+}
+
 func initializePetMetrics(c metric.Meter) (*petMetrics, error) {
 	return &petMetrics{
 		feedSuccess:  createCounter(c, "feed_success", "Pet fed successfully."),
@@ -74,10 +109,24 @@ func play(ctx context.Context, pm petMetrics, t time.Duration, forcedErr bool) c
 		return ctx
 	}
 
+	ctx = fetchBall(ctx)
+
 	time.Sleep(t)
 	span.SetAttributes(attribute.Int("play.duration", int(t)))
 
 	pm.playSuccess.Add(ctx, 1)
+	return ctx
+}
+
+func fetchBall(ctx context.Context) context.Context {
+	ctx, span := tracer.Start(ctx, "fetchBall")
+	defer span.End()
+
+	t := 2 * time.Second
+
+	time.Sleep(t)
+	span.SetAttributes(attribute.Int("fetchBall.duration", int(t)))
+
 	return ctx
 }
 
@@ -107,10 +156,25 @@ func sleep(ctx context.Context, pm petMetrics, t time.Duration, forcedErr bool) 
 		return ctx
 	}
 
+	time.Sleep(1 * time.Second)
+
+	ctx = dream(ctx)
+
 	time.Sleep(t)
 	span.SetAttributes(attribute.Int("sleep.duration", int(t)))
 
 	pm.sleepSuccess.Add(ctx, 1)
+	return ctx
+}
+
+func dream(ctx context.Context) context.Context {
+	ctx, span := tracer.Start(ctx, "dream")
+	defer span.End()
+
+	t := 2 * time.Second
+	time.Sleep(t)
+	span.SetAttributes(attribute.Int("dream.duration", int(t)))
+
 	return ctx
 }
 
@@ -123,40 +187,5 @@ func (ws wrapperPetHandler) petHandler(w http.ResponseWriter, r *http.Request) {
 	ctx = play(ctx, ws.pm, 3*time.Second, false)
 	ctx = sleep(ctx, ws.pm, 5*time.Second, false)
 
-	fmt.Fprintf(w, "Congratulations!")
-}
-
-func main() {
-	c := global.MeterProvider().Meter("pet_app")
-	ctx := context.Background()
-
-	pm, err := initializePetMetrics(c)
-	if err != nil {
-		log.Fatal("unable to initialize pet metrics.")
-	}
-
-	ws := wrapperPetHandler{
-		pm: *pm,
-	}
-
-	configureOpentelemetry(ctx)
-
-	// Wrap your httpHandler function.
-	petHandler := http.HandlerFunc(ws.petHandler)
-	wrappedSleepHandler := otelhttp.NewHandler(petHandler, "pet")
-	http.Handle("/pet", wrappedSleepHandler)
-
-	log.Fatal(http.ListenAndServe(":3035", nil))
-
-}
-
-func configureOpentelemetry(ctx context.Context) {
-	res := resource.NewWithAttributes(
-		semconv.SchemaURL,
-		// the service name used to display traces in backends
-		semconv.ServiceNameKey.String("pet-service"),
-	)
-
-	pettracing.ConfigureTracing(ctx, res, tracer)
-	petmetrics.ConfigureMetrics(res)
+	fmt.Fprintf(w, "Congratulations!\n")
 }

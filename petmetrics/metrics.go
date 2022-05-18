@@ -23,7 +23,6 @@ func ConfigureMetrics(res *resource.Resource) {
 			selector.NewWithHistogramDistribution(
 				histogram.WithExplicitBoundaries(config.DefaultHistogramBoundaries),
 			),
-			// export.CumulativeExportKindSelector(),
 			aggregation.CumulativeTemporalitySelector(),
 			processor.WithMemory(true),
 		), basic.WithResource(res),
