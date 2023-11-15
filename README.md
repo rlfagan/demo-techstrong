@@ -1,4 +1,6 @@
 # Demo for TechStrong
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frlfagan%2Fdemo-techstrong.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Frlfagan%2Fdemo-techstrong?ref=badge_shield)
+
 
 1. Clone this repo
 ```
@@ -14,3 +16,7 @@ brew install prometheus
 
 5. Start Prometheus using the `config.yml` file in the `prometheus/` directory.
 6. Navigate to `localhost:9090` to access Prometheus.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frlfagan%2Fdemo-techstrong.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Frlfagan%2Fdemo-techstrong?ref=badge_large)
