@@ -1,0 +1,262 @@
+repo_name: rlfagan/demo-techstrong
+report_id: 10fb82c3fd0f1c54d0ce8444606821e9
+version: 0.1
+repo_type: Public
+timestamp: '2024-06-20T23:04:07+00:00'
+requested_by: benraskin92
+provider: github
+branch: main
+detected_tools_count: 19
+tools:
+- name: Golang
+  description: An open source programming language that makes it easy to build simple,
+    reliable, and efficient software
+  website_url: http://golang.org/
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1005/O6AczwfV_400x400.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong
+  detection_source: Repo Metadata
+- name: Protobuf
+  description: Google's data interchange format
+  website_url: https://developers.google.com/protocol-buffers/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Serialization Frameworks
+  image_url: https://img.stackshare.io/service/4393/ma2jqJKH_400x400.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.mod
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-18 14:23:08.000000000 Z
+- name: gRPC
+  description: A high performance, open-source universal RPC framework
+  website_url: https://grpc.io/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Remote Procedure Call (RPC)
+  image_url: https://img.stackshare.io/service/4670/default_d811b0ac72205af84aca21f967594338580be913.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.mod
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: Docker
+  description: Enterprise Container Platform for High-Velocity Innovation.
+  website_url: https://www.docker.com/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Virtual Machine Platforms & Containers
+  image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/vendor/golang.org/x/net/http2/Dockerfile
+  detection_source: vendor/golang.org/x/net/http2/Dockerfile
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-18 14:23:08.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong
+  detection_source: Repo Metadata
+- name: Prometheus
+  description: An open-source service monitoring system and time series database,
+    developed by SoundCloud
+  website_url: http://prometheus.io/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Monitoring
+  sub_category: Monitoring Tools
+  image_url: https://img.stackshare.io/service/2501/default_3cf1b307194b26782be5cb209d30360580ae5b3c.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.mod
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: Travis CI
+  description: A hosted continuous integration service for open source and private
+    projects
+  website_url: http://travis-ci.com/
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/460/Lu6cGu0z_400x400.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/vendor/github.com/cenkalti/backoff/v4/.travis.yml
+  detection_source: vendor/github.com/cenkalti/backoff/v4/.travis.yml
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-18 14:23:08.000000000 Z
+- name: Ubuntu
+  description: The leading OS for PC, tablet, phone and cloud
+  website_url: http://www.ubuntu.com/
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Operating Systems
+  image_url: https://img.stackshare.io/service/3511/cof_orange_hex.jpg
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/vendor/golang.org/x/net/http2/Dockerfile
+  detection_source: vendor/golang.org/x/net/http2/Dockerfile
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-18 14:23:08.000000000 Z
+- name: client_model
+  description: Data model artifacts for Prometheus
+  package_url: https://pkg.go.dev/github.com/prometheus/client_model
+  version: 0.0.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: common
+  description: Go libraries shared across Prometheus components and libraries
+  package_url: https://pkg.go.dev/github.com/prometheus/common
+  version: 0.4.1
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: golang_protobuf_extensions
+  description: Support for streaming Protocol Buffer messages for the Go language
+  package_url: https://pkg.go.dev/github.com/matttproud/golang_protobuf_extensions
+  version: 1.0.1
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-18 14:23:08.000000000 Z
+- name: httpsnoop
+  description: Package httpsnoop provides an easy way to capture http related metrics
+  package_url: https://pkg.go.dev/github.com/felixge/httpsnoop
+  version: 1.0.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: logr
+  description: A simple logging interface for Go
+  package_url: https://pkg.go.dev/github.com/go-logr/logr
+  version: 1.2.2
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: net
+  description: Go supplementary network libraries
+  package_url: https://pkg.go.dev/golang.org/x/net
+  version: 0.0.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: perks
+  description: Effective Computation of Things
+  package_url: https://pkg.go.dev/github.com/beorn7/perks
+  version: 0.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: procfs
+  description: Procfs provides functions to retrieve system
+  package_url: https://pkg.go.dev/github.com/prometheus/procfs
+  version: 0.0.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: proto
+  description: Go support for Google's protocol buffers
+  package_url: https://pkg.go.dev/github.com/golang/protobuf/proto
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.mod
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-18 14:23:08.000000000 Z
+- name: sys
+  description: Go packages for low-level interaction with the operating system
+  package_url: https://pkg.go.dev/golang.org/x/sys
+  version: 0.0.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-08 22:42:17.000000000 Z
+- name: text
+  description: Go text processing support
+  package_url: https://pkg.go.dev/golang.org/x/text
+  version: 0.0.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Go Modules Packages
+  image_url: https://img.stackshare.io/package/go-packages/image.png
+  detection_source_url: https://github.com/rlfagan/demo-techstrong/blob/main/go.sum
+  detection_source: go.mod
+  last_updated_by: Benjamin Raskin
+  last_updated_on: 2022-05-18 14:23:08.000000000 Z
